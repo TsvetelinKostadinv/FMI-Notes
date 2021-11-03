@@ -70,6 +70,6 @@ string? ;; <= ----------- | | ------------- a string
 
 ### Lists
 Finally, considering LISP == **Lis**t **P**rocessing. Internally they are most probably implemented using pairs where the first value is an element of the list and the second is the tail of the list. Seems it is recursively defined, how convenient:
- - Base: there is an empty list: `''()`
+ - Base: there is an empty list: `'()`
  - A list is constructed by adding an element `el` at the front of the list `l`: `(cons el l)`
 `(cons el l)` trully produces `(el l) => (el (el2 tail2)) => ... => (el (el2 (el3 (... (eln ())...))))`, for convenience LISP reduces it to: `(el1 el2 el3 ... eln)`
