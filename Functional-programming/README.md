@@ -73,3 +73,14 @@ Finally, considering LISP == **Lis**t **P**rocessing. Internally they are most p
  - Base: there is an empty list: `'()`
  - A list is constructed by adding an element `el` at the front of the list `l`: `(cons el l)`
 `(cons el l)` trully produces `(el l) => (el (el2 tail2)) => ... => (el (el2 (el3 (... (eln ())...))))`, for convenience LISP reduces it to: `(el1 el2 el3 ... eln)`
+
+`car` & `cdr` **are not defined for**`()`. `null?` can be used to determine if a list is `()`
+
+`(cons 'a '(b c d)) ;; => (a b c d)` for appending at the front. It is one of the few highly efficient operations. `append` also exists, but it places the element at the back and is not as efficient
+
+##### Element access
+As expected `(car (list 1 2 3 4)) ;; => 1`, but `(cdr (list 1 2 3 4)) ;; => (2 3 4)`.
+`(car (cdr (list 1 2 3 4))) == (cadr (list 1 2 3 4)) ;; => 2`. Such shorthands are available in the form `cXXXXr`, where each `X` is one of `{a, d}`
+
+##### Operations
+`reverse` - do I have to explain it - `(reverse '((a b) (c d) e)) ;; => (e (c d) (a b))`. Shallow reverse
